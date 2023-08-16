@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<section>
+		<link rel="stylesheet" th:href="@{/css/mycss.css}">
+		<div class="container p-3">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Login Here!!</div>
+						
+						
+						<th:block th:if="${param.logout}">
+							<p class="text-center text-success fs-5">Logout Sucessfully</p>
+						</th:block>
+						<div class="card-body">
+							<form action="userLogin" method="post">
+								<div class="mb-3">
+									<label>Enter Your Email</label> <input type="text"
+										name="username" class="form-control w-75 rounded-pill" required="required" placeholder="Enter Your Email" >
+								</div>
+								<div class="mb-3">
+									<label>Enter Your Password</label> <input type="text"
+										name="password" class="form-control w-75 rounded-pill" required="required" placeholder="Enter Your Password">
+								</div>
+								<button class="btn btn-primary rounded-pill">Login</button>
+							</form>
+							<a th:href=@{/loadforgotpassword} class="text-decoration-none text-center mt-2 fs-4 forgotpwdbtn" >Forgot Password?</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
